@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="text-center text-success">SEARCH RESULTS</h1>
+</div>
+        <table class="table container text-center">
+            <tr>
+                <th></th>
+                <th>Name book</th>
+                <th>Type book</th>
+                <th>Author</th>
+                <th>Price</th>
+            </tr>
+            {% for b in books %}
+            <tr>
+                <td>
+                    <a href="{{url_for ('book_detail', book_id = b.id)}}">
+                        <img class="form-group" src="{{ b.image }}" width="40%">
+                    </a>
+                </td>
+                <td>
+                    <div class="form-group" style="padding-top:50px; font-size: 30px; text-transform: uppercase;">
+                        {{ b.name }}
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" style="padding-top:50px; font-size: 30px;"> {{ b.type }} </div>
+                </td>
+                <td>
+                    <div class="form-group" style="padding-top:50px; font-size: 30px;"> {{ b.author }} </div>
+                </td>
+                <td>
+                    <div class="form-group" style="padding-top:50px; font-size: 30px;"> ${{ b.price }} </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icons/logo.png') }}">
+    <link rel="stylesheet "href="{{url_for('static', filename='css/about-us.css')}}">
+</head>
+<body>
+
+        {% extends 'admin/master.html' %}
+
+        {% block body %}
+            {% if current_user.is_authenticated %}
+            <h1>WELCOME TO ADMIN PAGE!!!</h1>
+
+            <h3>Username của bạn là: {{ current_user.name }}</h3>
+            {% else %}
+                {% include "admin/login.html" %}
+            {% endif %}
+        {% endblock %}
+
+</body>
+</html>

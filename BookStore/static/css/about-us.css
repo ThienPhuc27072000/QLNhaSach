@@ -1,0 +1,21 @@
+img {
+    width: 100%;
+}
+
+h1 {
+    text-align:center;
+}
+
+.pl-md-5, .px-md-5 {
+    padding-left: 3rem!important;
+    margin-top: -80px;
+}
+
+.icon {
+    color: #8A2BE2;
+}
+
+.font {
+    font-size: 36px;
+}
+

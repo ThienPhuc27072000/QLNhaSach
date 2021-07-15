@@ -1,0 +1,83 @@
+ <header>
+     <div class="main-menu">
+         <div class="container">
+             <nav class="navbar navbar-expand-lg navbar-light">
+                 <a class="navbar-brand" href="{{url_for('index')}}">
+                     <img src="{{url_for('static', filename='images/logo.png') }}" alt="logo"></a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                 </button>
+                 {% if current_user.is_authenticated %}
+                    <p>Username:  {{ current_user.username }} </p>
+                 <div class="collapse navbar-collapse navbarSupportedContent">
+                     <ul class="navbar-nav ml-auto">
+                         <li class="navbar-item active">
+                             <a href="{{url_for('index')}}" class="nav-link">Home</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('shop')}}" class="nav-link">Shop</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('about')}}" class="nav-link">About</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('faq')}}" class="nav-link">FAQ</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('logout_usr')}}" class="nav-link">Logout</a>
+                         </li>
+                     </ul>
+                     <div class="cart my-2 my-lg-0">
+                         <span>
+                             <a href="{{url_for('payment')}}">
+                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                             </a>
+                         </span>
+                         <span class="quntity" id="cart-info">0</span>
+                     </div>
+                     <form action="{{url_for('findbook')}}" method="post" class="form-inline my-2 my-lg-0">
+                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search here..."
+                                aria-label="Search">
+                         <input type="submit" value=""><span class="fa fa-search"></span>
+                     </form>
+                 </div>
+                 {% else %}
+                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav ml-auto">
+                         <li class="navbar-item active">
+                             <a href="{{url_for('index')}}" class="nav-link">Home</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('shop')}}" class="nav-link">Shop</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('about')}}" class="nav-link">About</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('faq')}}" class="nav-link">FAQ</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('login_usr')}}" class="nav-link">Login</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('register')}}" class="nav-link">Register</a>
+                         </li>
+                     </ul>
+                     <div class="cart my-2 my-lg-0">
+                         <span>
+                             <a href="{{url_for('payment')}}">
+                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                             </a>
+                         </span>
+                     </div>
+                     <form action="{{url_for('findbook')}}" method="post" class="form-inline my-2 my-lg-0">
+                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search here..."
+                                aria-label="Search">
+                         <input type="submit" value=""><span class="fa fa-search"></span>
+                     </form>
+                 </div>
+                 {% endif %}
+             </nav>
+         </div>
+      </div>
+ </header>

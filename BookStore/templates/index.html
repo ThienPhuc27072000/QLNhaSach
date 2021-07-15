@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#03a6f3">
+    <link rel="icon" href="{{ url_for('static', filename='images/icons/logo.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='font/font-awesome.min.css') }}">-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/daterangepicker.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/utilLogin.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font/icon-font.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/hamburgers.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/animsition.min.css') }}">
+</head>
+
+<body>
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
+
+    {% block body %}
+        {% include 'body.html' %}
+    {% endblock %}
+
+    {% block footer%}
+        {% include 'footer.html' %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='javascript/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/owl.carousel.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='javascript/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/cart.js') }}"></script>
+</body>
+
+</html>

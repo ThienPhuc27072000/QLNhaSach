@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="{{url_for('index')}}">Home</a>
+            <span class="breadcrumb-item active">Shop</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h2>highly recommendes books</h2>
+            <div class="recomended-sec">
+                <div class="row">
+                    {% for b in books %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="item">
+                                <img src="{{ b.image }}" alt="img">
+                                <h3>{{ b.name }}</h3>
+                                <h6><span class="price">${{ b.price }}</span> / <a href="#">Buy Now</a></h6>
+                                <div class="hover">
+                                    <a href="{{url_for ('book_detail', book_id = b.id)}}">
+                                        <span><i class="fa fa-cart-plus" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <h2>recently added books to our store</h2>
+            <div class="recent-book-sec">
+                <div class="row">
+                    {% for b in booklist %}
+                    <div class="col-md-3">
+                        <div class="item">
+                            <a href="{{url_for ('book_detail', book_id = b.id)}}">
+                            <img class="aaa" src="{{ b.image }}" alt="img">
+                                <h3>{{ b.name }}</h3></a>
+                            <h6>
+                                <span class="price">${{ b.price }}</span> /
+                                <input type="button" value="Buy now" class="buynow" id="cart-info"
+                                       onclick="addToCart({{ b.id  }}, '{{ b.name }}', {{ b.price }})">
+                            </h6>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="btn-sec">
+                    <button class="gray">load More books</button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

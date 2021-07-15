@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignUp Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="{{url_for('static', filename='css/register.css')}}" rel="stylesheet" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+	    <link rel="icon" href="{{ url_for('static', filename='images/icons/logo.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/daterangepicker.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/utilLogin.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font/icon-font.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/hamburgers.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/animsition.min.css') }}">
+</head>
+
+<body>
+ <header>
+     <div class="main-menu">
+         <div class="container">
+             <nav class="navbar navbar-expand-lg navbar-light">
+                 <a class="navbar-brand" href="{{url_for('index')}}">
+                     <img src="{{url_for('static', filename='images/logo.png') }}" alt="logo"></a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                 </button>
+                 {% if current_user.is_authenticated %}
+                    <p>Username:  {{ current_user.username }} </p>
+                 <div class="collapse navbar-collapse navbarSupportedContent">
+                     <ul class="navbar-nav ml-auto">
+                         <li class="navbar-item active">
+                             <a href="{{url_for('index')}}" class="nav-link">Home</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('shop')}}" class="nav-link">Shop</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('about')}}" class="nav-link">About</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('faq')}}" class="nav-link">FAQ</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('logout_usr')}}" class="nav-link">Logout</a>
+                         </li>
+                     </ul>
+                     <div class="cart my-2 my-lg-0">
+                         <span>
+                             <a href="{{url_for('payment')}}">
+                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                             </a>
+                         </span>
+                     </div>
+                     <form action="{{url_for('findbook')}}" method="post" class="form-inline my-2 my-lg-0">
+                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search here..."
+                                aria-label="Search">
+                         <span class="fa fa-search"></span>
+                     </form>
+                 </div>
+                 {% else %}
+                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav ml-auto">
+                         <li class="navbar-item active">
+                             <a href="{{url_for('index')}}" class="nav-link">Home</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('shop')}}" class="nav-link">Shop</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('about')}}" class="nav-link">About</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('faq')}}" class="nav-link">FAQ</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('login_usr')}}" class="nav-link">Login</a>
+                         </li>
+                         <li class="navbar-item">
+                             <a href="{{url_for('register')}}" class="nav-link">Register</a>
+                         </li>
+                     </ul>
+                     <div class="cart my-2 my-lg-0">
+                         <span>
+                             <a href="{{url_for('payment')}}">
+                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                             </a>
+                         </span>
+                     </div>
+                     <form action="{{url_for('findbook')}}" method="post" class="form-inline my-2 my-lg-0">
+                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search here..."
+                                aria-label="Search">
+                         <span class="fa fa-search"></span>
+                     </form>
+                 </div>
+                 {% endif %}
+             </nav>
+         </div>
+      </div>
+ </header>
+
+    <div style="background-image:url('{{url_for('static', filename='images/bgLogin (2).jpg') }}')">
+		<h1 class="text-center tieude" style="color:white">CREATE SIGNUP FORM</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{{ url_for('register') }}" method="post" enctype="multipart/form-data">
+                    <input class="text w3lpass" type="text" name="name" placeholder="Fullname" required="">
+					<input class="text w3lpass" type="text" name="username" placeholder="Username" required="">
+					<input class="text w3lpass" type="text" name="email" placeholder="Email" required="">
+                    <input class="text w3lpass" type="text" name="address" placeholder="Address" required="">
+					<input class="text w3lpass" type="text" name="sdt" placeholder="Number Phone" required="">
+					<input class="text w3lpass" type="password" name="password" placeholder="Password" required="">
+					<input class="text w3lpass" type="password" name="confirm_password" placeholder="Confirm Password" required="">
+					<div class="form-group">
+						<input type="file" id="avatar" name="avatar" class="form-control" />
+					</div>
+					<div class="wthree-text">
+						 {% if err_msg %}
+							<div class="alert alert-warning">
+								<h4>{{ err_msg }}</h4>
+							</div>
+						 {% endif %}
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>Don't have an Account? <a href="#"> Login Now!</a></p>
+			</div>
+		</div>
+		<div class="colorlibcopy-agile">
+			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by
+				<a href="https://colorlib.com/" target="_blank">Colorlib</a>
+			</p>
+		</div>
+	</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="address">
+                        <h4>Our Address</h4>
+                        <h6>The BookStore Theme, 4th Store
+                        Beside that building, USA</h6>
+                        <h6>Call : 800 1234 5678</h6>
+                        <h6>Email : info@bookstore.com</h6>
+                    </div>
+                    <div class="timing">
+                        <h4>Timing</h4>
+                        <h6>Mon - Fri: 7am - 10pm</h6>
+                        <h6>​​Saturday: 8am - 10pm</h6>
+                        <h6>​Sunday: 8am - 11pm</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="navigation">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms</a></li>
+                            <li><a href="products.html">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="navigation">
+                        <h4>Help</h4>
+                        <ul>
+                            <li><a href="">Shipping & Returns</a></li>
+                            <li><a href="privacy-policy.html">Privacy</a></li>
+                            <li><a href="faq.html">FAQ’s</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form">
+                        <h3>Quick Contact us</h3>
+                        <h6>We are now offering some good discount
+                            on selected books go and shop them</h6>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input placeholder="Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" placeholder="Email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea placeholder="Messege"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="yellow">Alright, Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>(C) 2017. All Rights Reserved. BookStore Wordpress Theme</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="share align-middle">
+                            <span class="fb"><i class="fa fa-facebook-official"></i></span>
+                            <span class="instagram"><i class="fa fa-instagram"></i></span>
+                            <span class="twitter"><i class="fa fa-twitter"></i></span>
+                            <span class="pinterest"><i class="fa fa-pinterest"></i></span>
+                            <span class="google"><i class="fa fa-google-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="goToTop">
+            <a href="#"><img src="{{url_for('static', filename='images/icons/gotoTop.jpg')}}"></a>
+        </div>
+    </footer>
+</body>
